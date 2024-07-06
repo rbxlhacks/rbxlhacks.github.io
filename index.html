@@ -6,280 +6,277 @@
     <title>Roblox Exploits</title>
     <link rel="icon" href="https://rbxlhacks.github.io/icon.png" type="image/png">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000000;
-            color: white;
-            margin: 0;
-            filter: brightness(1.1);
-            padding-top: 60px;
-            padding-bottom: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    color: white;
+    margin: 0;
+    filter: brightness(1.1);
+    padding-top: 60px; /* Reduced from 60px to 20px */
+    padding-bottom: 60px; /* Reduced from 50px to 30px */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
 
-        /* scrollbar stuff */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
+/* scrollbar stuff */
+::-webkit-scrollbar {
+    width: 12px;
+}
 
-        ::-webkit-scrollbar-track {
-            background: #000000;
-        }
+::-webkit-scrollbar-track {
+    background: #000000;
+}
 
-        ::-webkit-scrollbar-thumb {
-            background: #555;
-            border-radius: 6px;
-            border: 2px solid #000000;
-        }
+::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 6px;
+    border: 2px solid #000000;
+}
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #888;
-        }
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
 
-        .topbar {
-            background: rgba(0, 0, 0, 0.7);
-            border-bottom: 1px solid gray;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            color: white;
-        }
+.topbar {
+    background: rgba(0, 0, 0, 0.7);
+    border-bottom: 1px solid #222;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    color: white;
+}
 
-        .topbar img {
-            height: 40px;
-            margin-right: 10px;
-            transition: transform 0.6s ease, box-shadow 0.3s ease;
-            transform-origin: center;
-        }
+.topbar img {
+    height: 40px;
+    margin-right: 10px;
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+    transform-origin: center;
+}
 
-        .topbar img.rotating {
-            animation: rotate 2s linear infinite;
-        }
+.topbar img.rotating {
+    animation: rotate 2s linear infinite;
+}
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
 
-        .topbar img:hover {
-            transform: scale(1.1) translateZ(20px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-        }
+.topbar img:hover {
+    transform: scale(1.1) translateZ(20px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
 
-        .topbar h1 {
-            margin: 0;
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            position: relative;
-            overflow: hidden;
-        }
+.topbar h1 {
+    margin: 0;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
 
-        .topbar h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: -100%;
-            height: 2px;
-            width: 100%;
-            background-color: blue;
-            transition: left 0.3s ease;
-        }
+.topbar h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    height: 2px;
+    width: 100%;
+    background-color: blue;
+    transition: left 0.3s ease;
+}
 
-        .topbar h1:hover::after {
-            left: 0;
-        }
+.topbar h1:hover::after {
+    left: 0;
+}
 
-        .topbar h1:hover {
-            color: #dcdcdc;
-        }
+.topbar h1:hover {
+    color: #dcdcdc;
+}
 
-        .topbar .version-text {
-            margin: 5px 0 0;
-            color: gray;
-            font-size: 12px;
-            text-align: left;
-        }
+.topbar .version-text {
+    margin: 5px 0 0;
+    color: gray;
+    font-size: 12px;
+    text-align: left;
+}
 
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            max-width: 1200px;
-            padding: 20px;
-            perspective: 1000px;
-            margin-top: 60px;
-        }
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    padding: 20px;
+    perspective: 1000px;
+    margin-top: 20px; /* Reduced from 60px to 20px */
+}
 
-        .card {
-            background-color: #000000;
-            padding: 20px;
-            border-radius: 10px;
-            width: 600px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 0.01px solid gray;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: space-between;
-            flex: 1 1 calc(33.333% - 20px);
-            box-sizing: border-box;
-        }
+.card {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 4px;
+    width: 1000px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #222; /* Darker border color */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 1 calc(33.333% - 20px);
+    box-sizing: border-box;
+}
 
-        .highlight {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0);
-            pointer-events: none;
-            transition: background 0.1s;
-        }
+.highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0);
+    pointer-events: none;
+    transition: background 0.1s;
+}
 
-        .card:hover {
-            transform: scale(1.05) translateZ(20px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-        }
+.card:hover {
+    transform: scale(1.05) translateZ(20px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
 
-        button {
-            background: linear-gradient(135deg, #6a0dad, #4b0082, #1e90ff);
-            color: white;
-            border: none;
-            padding: 16px 30px;
-            border-radius: 20px;
-            cursor: pointer;
-            width: 190px;
-            max-width: 190px;
-            box-sizing: border-box;
-            margin: 20px auto 0;
-            display: block;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
+button {
+    background: linear-gradient(135deg, #6a0dad, #4b0082, #1e90ff);
+    color: white;
+    border: none;
+    padding: 16px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 190px;
+    max-width: 190px;
+    box-sizing: border-box;
+    margin: 20px auto 0; /* Center the button horizontally */
+    display: block;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
 
-        button:hover {
-            background: linear-gradient(135deg, #8a2be2, #6a0dad, #4682b4);
-            transform: scale(1.05);
-        }
+button:hover {
+    background: linear-gradient(135deg, #8a2be2, #6a0dad, #4682b4);
+    transform: scale(1.05);
+}
 
-        h2 {
-            margin: 0 0 15px;
-            color: #ffffff;
-            font-size: 24px;
-        }
+h2 {
+    margin: 0 0 15px;
+    color: #ffffff;
+    font-size: 24px;
+}
 
-        .pros-heading, .neutral-heading, .cons-heading {
-            margin: 15px 0 10px;
-            text-align: left;
-            width: 100%;
-            font-size: 18px;
-        }
+.pros-heading, .neutral-heading, .cons-heading {
+    margin: 15px 0 10px;
+    font-size: 18px;
+}
 
-        .pros-heading {
-            color: #00ff00; /* green */
-        }
+.pros-heading {
+    color: #4fd47e; /* green */
+}
 
-        .neutral-heading {
-            color: #ffff00; /* yellow */ 
-        }
+.neutral-heading {
+    color: #efc41f; /* yellow */ 
+}
 
-        .cons-heading {
-            color: #ff0000; /* red */
-        }
+.cons-heading {
+    color: #d16565; /* red */
+}
 
-        .pros li, .neutral li, .cons li {
-            color: white;
-            margin: 0;
-            padding: 0;
-            position: relative;
-            padding-left: 30px;
-            font-size: 16px;
-        }
+.pros li, .neutral li, .cons li {
+    color: white;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    padding-left: 30px;
+    font-size: 16px;
+}
 
-        .pros li::before, .neutral li::before, .cons li::before {
-            content: '•';
-            color: #ffffff;
-            position: absolute;
-            left: 0;
-            font-size: 1.5em;
-            line-height: 1;
-        }
+.pros li::before, .neutral li::before, .cons li::before {
+    content: '•';
+    color: #ffffff;
+    position: absolute;
+    left: 0;
+    font-size: 1.5em;
+    line-height: 1;
+}
 
-        .pros, .neutral, .cons {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-        }
+.pros, .neutral, .cons {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
 
-        .bottombar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            border-top: 1px solid gray;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 10px 0;
-            text-align: center;
-            color: white;
-            z-index: 1000;
-            box-sizing: border-box;
-        }
+.bottombar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #222; /* Darker border color */
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+    z-index: 1000;
+    box-sizing: border-box;
+}
 
-        .bottombar .hi-text {
-            font-size: 20px;
-            margin: 0;
-        }
+.bottombar .hi-text {
+    font-size: 20px;
+    margin: 0;
+}
 
-        .bottombar .skibidi-text {
-            font-size: 14px;
-            margin: 5px 0 0;
-            color: gray;
-        }
+.bottombar .skibidi-text {
+    font-size: 14px;
+    margin: 5px 0 0;
+    color: gray;
+}
 
-        @media (max-width: 1200px) {
-            .card {
-                flex: 1 1 calc(50% - 20px);
-            }
-        }
+@media (max-width: 1200px) {
+    .card {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
 
-        @media (max-width: 768px) {
-            .card {
-                flex: 1 1 calc(100% - 20px);
-            }
-        }
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 calc(100% - 20px);
+    }
+}
     </style>
 </head>
 <body>
     <div class="topbar">
-        <img src="https://rbxlhacks.github.io/icon.png" alt="icon" id="topbar-icon">
+        <img src="https://rbxlhacks.github.io/icon.png" class="rotating" alt="Logo">
         <div>
             <h1>rbxlhacks.github.io | Roblox Exploits</h1>
-            <p class="version-text">(edited version of robloxhackers.lol)</p>
+            <div class="version-text">Everything last updated: 7/6/2024 1:27PM</div>
         </div>
     </div>
-    
+
       <div class="container">
         <div class="card" id="electron">
             <div class="highlight"></div>
             <h2>Electron</h2>
             <p class="pros-heading">Pros:</p>
             <ul class="pros">
-                <li>??% UNC</li>
-                <li>??? Level</li>
+                <li>98% UNC</li>
+                <li>Level 8</li>
             </ul>
             <p class="neutral-heading">Neutral:</p>
             <ul class="neutral">
@@ -556,7 +553,6 @@
                 <button>FREE</button>
             </a>
         </div>
-        
 
         <div class="card" id="ArceusX">
             <div class="highlight"></div>
@@ -579,34 +575,11 @@
                 <button>FREE</button>
             </a>
         </div>
+
     </div>
-    
     <div class="bottombar">
-        <p class="hi-text">HI!</p>
-        <p class="skibidi-text">skibidi toilet</p>
+        <div class="hi-text">© 2024 rbxlhacks.github.io/ All rights reserved.</div>
+        <div class="skibidi-text">There is no community this is just a version of robloxhackers.lol that has no ads</div>
     </div>
-
-    <script>
-        const icon = document.getElementById('topbar-icon');
-        let currentRotation = 0;
-        let rotating = false;
-        icon.addEventListener('mouseover', () => {
-            if (!rotating) {
-                rotating = true;
-                icon.classList.add('rotating');
-            }
-        });
-
-        icon.addEventListener('animationiteration', () => {
-            currentRotation += 360;
-        });
-
-        icon.addEventListener('mouseout', () => {
-            icon.classList.remove('rotating');
-            icon.style.transition = 'transform 0.6s ease';
-            icon.style.transform = rotate(${currentRotation}deg) scale(1) translateZ(0px);
-            rotating = false;
-        });
-    </script>
 </body>
 </html>
