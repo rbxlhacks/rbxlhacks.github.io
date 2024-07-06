@@ -21,7 +21,6 @@ body {
     overflow-x: hidden;
 }
 
-/* scrollbar stuff */
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -145,14 +144,20 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0);
+    background: rgba(255, 255, 255, 0.05);
     pointer-events: none;
-    transition: background 0.1s;
+    transition: opacity 0.3s;
+    border-radius: 4px;
+    z-index: 1
 }
 
 .card:hover {
     transform: scale(1.05) translateZ(20px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card:hover .highlight {
+    opacity: 1;
 }
 
 button {
@@ -168,12 +173,17 @@ button {
     margin: 20px auto 0;
     display: block;
     transition: background 0.3s ease, transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+    font-weight: bold;
+    font-size: 15px;
 }
 
 button:hover {
     background: linear-gradient(135deg, #8a2be2, #6a0dad, #4682b4);
     transform: scale(1.05);
 }
+
 
 h2 {
     margin: 0 0 15px;
@@ -199,7 +209,7 @@ h2 {
 }
 
 .pros li, .neutral li, .cons li {
-    color: #dcdcdc; /* Softer white */
+    color: #dcdcdc;
     margin: 0;
     padding: 0;
     position: relative;
@@ -243,32 +253,18 @@ h2 {
 
 .bottombar .skibidi-text {
     font-size: 14px;
-    margin: 5px 0 0;
+    margin: 0;
     color: #888888;
-}
-
-@media (max-width: 1200px) {
-    .card {
-        flex: 1 1 calc(50% - 20px);
-    }
-}
-
-@media (max-width: 768px) {
-    .card {
-        flex: 1 1 calc(100% - 20px);
-    }
 }
     </style>
 </head>
 <body>
     <div class="topbar">
-        <img src="https://rbxlhacks.github.io/icon.png" class="rotating" alt="Logo">
-        <div>
-            <h1>rbxlhacks.github.io | Roblox Exploits</h1>
-            <div class="version-text">Last updated: 7/6/2024 1:27PM</div>
-        </div>
+        <img src="https://rbxlhacks.github.io/icon.png" alt="Logo" class="rotating">
+        <h1>Roblox Exploits</h1>
+        <div class="version-text">Version 1.0</div>
     </div>
-
+    
       <div class="container">
         <div class="card" id="electron">
             <div class="highlight"></div>
@@ -321,6 +317,7 @@ h2 {
             <ul class="pros">
                 <li>No key system</li>
                 <li>External</li>
+                <li>Proven to be safe</li>
             </ul>
             <p class="neutral-heading">Neutral:</p>
             <ul class="neutral">
@@ -331,7 +328,6 @@ h2 {
             <p class="cons-heading">Cons:</p>
             <ul class="cons">
                 <li>Many vulnerabilities</li>
-                <li>Safety is uncertain</li>
             </ul>
             <a href="https://discord.com/invite/realsolara" target="_blank">
                 <button>FREE</button>
@@ -343,21 +339,45 @@ h2 {
             <h2>Wave</h2>
             <p class="pros-heading">Pros:</p>
             <ul class="pros">
-                <li>Offers a premium package</li>
-                <li>Proven safe in all builds</li>
-                <li>98-100% UNC</li>
-                <li>Level 7-8</li>
+                <li>100% UNC</li>
+                <li>Level 8</li>
             </ul>
             <p class="neutral-heading">Neutral:</p>
             <ul class="neutral">
-                <li>Includes a keysystem</li>
-                <li>Wave Lite has less features</li>
-                <li>Rarely updated</li>
+                <li>Monthly subscriptions only</li>
+                <li>Expensive</li>
+            </ul>
+            <p class="cons-heading">Cons:</p>
+            <ul class="cons">
+                <li>Safety is uncertain</li>
             </ul>
             <a href="https://getwave.gg/" target="_blank">
-                <button>FREE | PAID</button>
+                <button>7.50$</button>
             </a>
         </div>
+
+
+        <div class="card" id="WaveLite">
+            <div class="highlight"></div>
+            <h2>Wave Lite</h2>
+            <p class="pros-heading">Pros:</p>
+            <ul class="pros">
+                <li>95% UNC</li>
+                <li>Level 8</li>
+            </ul>
+            <p class="neutral-heading">Neutral:</p>
+            <ul class="neutral">
+                <li>Might include a keysystem</li>
+            </ul>
+            <p class="cons-heading">Cons:</p>
+            <ul class="cons">
+                <li>Safety is uncertain</li>
+            </ul>
+            <a href="https://getwave.gg/" target="_blank">
+                <button>FREE</button>
+            </a>
+        </div>
+
 
         <div class="card" id="DX9WARE">
             <div class="highlight"></div>
@@ -575,11 +595,29 @@ h2 {
                 <button>FREE</button>
             </a>
         </div>
+
     </div>
 
     <div class="bottombar">
-        <div class="hi-text">© 2024 rbxlhacks.github.io No rights reserved.</div>
-        <div class="skibidi-text">There is no community this is just a version of robloxhackers.lol that has no ads</div>
+        <div class="hi-text">Hi there!</div>
+        <div class="skibidi-text">Skibidi</div>
     </div>
+
+    <script>
+        document.querySelectorAll('.card').forEach(function(card) {
+            const highlight = card.querySelector('.highlight');
+            card.addEventListener('mousemove', function(event) {
+                const x = event.clientX - card.getBoundingClientRect().left;
+                const y = event.clientY - card.getBoundingClientRect().top;
+                highlight.style.background = radial-gradient(circle at ${x}px ${y}px, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+                highlight.style.opacity = 1;
+            });
+
+            card.addEventListener('mouseleave', function() {
+                highlight.style.opacity = 0;
+                highlight.style.background = 'rgba(255, 255, 255, 0.05)';
+            });
+        });
+    </script>
 </body>
 </html>
