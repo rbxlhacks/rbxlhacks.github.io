@@ -293,7 +293,7 @@ button:hover {
 }
 
 a {
-    text-decoration: none; 
+    text-decoration: none;
 }
 
 </style>
@@ -319,9 +319,7 @@ a {
 <div class="container">
     <h2>Stay Updated with Latest Exploits</h2>
     <p>Keep yourself informed with the latest information on security vulnerabilities and exploits. Visit our Exploits Page for detailed updates and stay ahead of potential threats.</p>
-        <a href="https://rbxlhacks.github.io/exploits">
-        <button>Go to Exploits Page</button>
-     </a>
+        <button id="confettiButton">Go to Exploits Page</button>
   </div>
 </div>
 
@@ -337,11 +335,13 @@ a {
     <div class="community">There is no community this is just a version of robloxhackers.lol that has no ads</div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const container = document.querySelector('.container2');
     const content = document.querySelector('.container2-content');
-
+    const confettiButton = document.getElementById('confettiButton');
+    
     container.addEventListener('mousemove', (e) => {
         const rect = container.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -355,6 +355,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
     container.addEventListener('mouseleave', () => {
         content.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    });
+
+    confettiButton.addEventListener('click', () => {
+        confetti({
+            particleCount: 200,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#ffffff']
+        });
+
+        setTimeout(() => {
+            window.location.href = 'https://rbxlhacks.github.io/exploits';
+        }, 2000);
     });
 });
 </script>
