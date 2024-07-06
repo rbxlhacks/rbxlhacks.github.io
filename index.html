@@ -207,6 +207,15 @@ body::-webkit-scrollbar-thumb:hover {
     border: 1px solid #222;
     box-sizing: border-box;
     color: #dcdcdc;
+    perspective: 1000px; /* Add perspective to the container */
+    transform-style: preserve-3d; /* Ensure child elements are transformed in 3D space */
+    transition: transform 0.2s ease; /* Smooth transition for the transformation */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+.container2-content {
+    transform: translateZ(0); /* Initial 3D transform */
+    backface-visibility: hidden; /* Prevents text from clipping into the frame */
 }
 
 .container2 h2 {
@@ -317,8 +326,10 @@ a {
 </div>
 
 <div class="container2">
-    <h2>Important</h2>
-    <p>Hello, this is not the official robloxhackers.lol just an remake with semi similar ui. This version has no ads! The website/info gets updated 1-10 times a day. Website holder discord: pvhh</p>
+    <div class="container2-content">
+        <h2>Important</h2>
+        <p>Hello, this is not the official robloxhackers.lol just an remake with semi similar ui. This version has no ads! The website/info gets updated 1-10 times a day. Website holder discord: pvhh</p>
+    </div>
 </div>
 
 <div class="bottombar">
@@ -326,6 +337,27 @@ a {
     <div class="community">There is no community this is just a version of robloxhackers.lol that has no ads</div>
 </div>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const container = document.querySelector('.container2');
+    const content = document.querySelector('.container2-content');
+
+    container.addEventListener('mousemove', (e) => {
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX - rect.left; // x position within the element
+        const y = e.clientY - rect.top; // y position within the element
+
+        const rotateX = (y / rect.height - 0.5) * 20; // Adjust the 20 value for more/less tilt
+        const rotateY = (x / rect.width - 0.5) * -20; // Adjust the 20 value for more/less tilt
+
+        content.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    container.addEventListener('mouseleave', () => {
+        content.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    });
+});
+</script>
 
 </body>
 </html>
