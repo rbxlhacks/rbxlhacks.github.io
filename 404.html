@@ -230,9 +230,9 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 button {
-    background: linear-gradient(135deg, #6a0dad, #4b0082, #1e90ff);
-    color: #dcdcdc;
-    border: none;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #333;
     padding: 16px 30px;
     border-radius: 20px;
     cursor: pointer;
@@ -242,7 +242,7 @@ button {
     box-sizing: border-box;
     margin: 20px auto 0;
     display: block;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
     position: relative;
     z-index: 2;
     font-weight: bold;
@@ -252,7 +252,9 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(135deg, #8a2be2, #6a0dad, #4682b4);
+    background-color: #ffffff; /* White background on hover */
+    color: #000000; /* Black text on hover */
+    border-color: #000000; /* Black border on hover */
     transform: scale(1.05);
 }
 
@@ -290,7 +292,7 @@ a {
 <div class="main-content">
     <div class="container">
         <h2>404 Not found!</h2>
-        <p>Erm what the sigma. You're not ment to be here click the button below to go back to main page!!</p>
+        <p>Erm what the sigma. You're not meant to be here click the button below to go back to the main page!!</p>
         <img src="https://rbxlhacks.github.io/bannergif.gif" alt="Not found GIF">
         <button id="confettiButton">Go back to main page</button>
     </div>
