@@ -341,15 +341,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const container = document.querySelector('.container2');
     const content = document.querySelector('.container2-content');
     const confettiButton = document.getElementById('confettiButton');
-    
     container.addEventListener('mousemove', (e) => {
         const rect = container.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-
         const rotateX = (y / rect.height - 0.5) * 20;
         const rotateY = (x / rect.width - 0.5) * -20;
-
         content.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
 
@@ -361,14 +358,12 @@ document.addEventListener("DOMContentLoaded", function() {
         const rect = confettiButton.getBoundingClientRect();
         const confettiOriginX = (rect.left + rect.right) / 2 / window.innerWidth;
         const confettiOriginY = (rect.top + rect.bottom) / 2 / window.innerHeight;
-
         confetti({
             particleCount: 200,
             spread: 70,
             origin: { x: confettiOriginX, y: confettiOriginY },
             colors: ['#ffffff']
         });
-
         setTimeout(() => {
             window.location.href = 'https://rbxlhacks.github.io/exploits';
         }, 2000);
