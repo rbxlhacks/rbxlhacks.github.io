@@ -9,11 +9,9 @@
 <meta property="og:description" content="rbxl hacks, version of robloxhackers.lol that has no ads">
 <meta property="theme-color" content="#ffffff">
 
-
 <title>rbxl hacks</title>
 <link rel="icon" href="https://rbxlhacks.github.io/icon.png" type="image/png">
 
-    
 <style>
 body {
     font-family: Arial, sans-serif;
@@ -21,8 +19,8 @@ body {
     color: #dcdcdc;
     margin: 0;
     filter: brightness(1);
-    padding-top: 60px;
-    padding-bottom: 50px;
+    padding-top: 0px;
+    padding-bottom: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -108,7 +106,7 @@ body::-webkit-scrollbar-thumb:hover {
     bottom: 26px;
     left: 0;
     height: 2px;
-    width: 90%;
+    width: 41%;
     background-color: blue;
     transition: transform 0.3s ease;
     transform: scaleX(0);
@@ -127,68 +125,120 @@ body::-webkit-scrollbar-thumb:hover {
     width: 100%;
 }
 
-.container {
+.main-content {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     gap: 20px;
-    justify-content: center;
+    margin-top: 80px;
     max-width: 1200px;
+    width: 100%;
     padding: 20px;
-    perspective: 1000px;
-    margin-top: 20px;
-}
-
-.card {
-    background-color: #000000;
-    padding: 20px;
-    border-radius: 4px;
-    width: 1000px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid #222;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1 1 calc(33.333% - 20px);
     box-sizing: border-box;
 }
 
-.card .icons {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+.welcome-section {
+    flex: 2;
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #dcdcdc;
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin-right: 20px;
+    background-color: #000000;
+    border: 1px solid #222;
+    border-radius: 8px;
+}
+
+.main-title {
+    font-size: 50px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.welcome-message {
+    font-size: 18px;
+    margin: 10px 0 30px;
+    max-width: 800px;
+}
+
+.credits-container {
+    display: flex;
+    justify-content: space-between;
     gap: 10px;
-    z-index: 2;
-}
-
-.card .icons img {
-    height: 30px;
-    width: 30px;
-    border-radius: 4px;
-}
-
-.highlight {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    pointer-events: none;
-    transition: background 0.3s ease;
+    max-width: 1200px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin: 20px 0;
+}
+
+.credits-section {
+    background-color: #000000;
+    padding: 20px;
     border-radius: 4px;
-    z-index: 1;
+    width: 300px;
+    max-width: 600px;
+    border: 1px solid #222;
+    box-sizing: border-box;
+    color: #dcdcdc;
+    text-align: center;
+    height: 120px;
+    overflow: auto;
 }
 
-.card:hover {
-    transform: scale(1.05) translateZ(20px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+.credits-section h2 {
+    font-size: 40px;
+    margin: 0;
 }
 
-.card:hover .highlight {
-    opacity: 1;
+.credits-section p {
+    font-size: 18px;
+    margin: 10px 0 0;
+}
+
+.container2 {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 4px;
+    width: 500px;
+    max-width: 500px;
+    height: 200px;
+    border: 1px solid #222;
+    box-sizing: border-box;
+    color: #dcdcdc;
+}
+
+.container2 h2 {
+    margin-top: 0;
+    font-size: 28px;
+}
+
+.container2 p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.container {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 4px;
+    width: 500px;
+    max-width: 500px;
+    border: 1px solid #222;
+    box-sizing: border-box;
+    color: #dcdcdc;
+    flex: 1;
+}
+
+.container h2 {
+    margin-top: 0;
+    font-size: 28px;
+}
+
+.container p {
+    font-size: 16px;
+    margin: 10px 0;
 }
 
 button {
@@ -198,8 +248,9 @@ button {
     padding: 16px 30px;
     border-radius: 20px;
     cursor: pointer;
-    width: 190px;
-    max-width: 190px;
+    min-width: 190px;
+    width: auto;
+    max-width: 100%;
     box-sizing: border-box;
     margin: 20px auto 0;
     display: block;
@@ -208,58 +259,13 @@ button {
     z-index: 2;
     font-weight: bold;
     font-size: 15px;
+    white-space: nowrap;
+    text-align: center;
 }
 
 button:hover {
     background: linear-gradient(135deg, #8a2be2, #6a0dad, #4682b4);
     transform: scale(1.05);
-}
-
-h2 {
-    margin: 0 0 15px;
-    color: #dcdcdc;
-    font-size: 24px;
-}
-
-.pros-heading, .neutral-heading, .cons-heading {
-    margin: 15px 0 10px;
-    font-size: 18px;
-}
-
-.pros-heading {
-    color: #4fd47e;
-}
-
-.neutral-heading {
-    color: #efc41f;
-}
-
-.cons-heading {
-    color: #d16565;
-}
-
-.pros li, .neutral li, .cons li {
-    color: #dcdcdc;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    padding-left: 30px;
-    font-size: 16px;
-}
-
-.pros li::before, .neutral li::before, .cons li::before {
-    content: '•';
-    color: #dcdcdc;
-    position: absolute;
-    left: 0;
-    font-size: 1.5em;
-    line-height: 1;
-}
-
-.pros, .neutral, .cons {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
 }
 
 .bottombar {
@@ -274,30 +280,13 @@ h2 {
     color: #dcdcdc;
     z-index: 1000;
     box-sizing: border-box;
+    margin-top: 20px;
 }
 
-.bottombar .copyright {
-    font-size: 20px;
-    margin: 0;
+a {
+    text-decoration: none; /* Remove underline from links */
 }
 
-.bottombar .community {
-    font-size: 14px;
-    margin: 0;
-    color: #888888;
-}
-
-@media (max-width: 1200px) {
-    .card {
-        flex: 1 1 calc(50% - 20px);
-    }
-}
-
-@media (max-width: 768px) {
-    .card {
-        flex: 1 1 calc(100% - 20px);
-    }
-}
 </style>
 </head>
 <body>
@@ -305,435 +294,38 @@ h2 {
 <div class="topbar">
     <img src="https://rbxlhacks.github.io/icon.png" alt="Logo" class="rotating">
     <div class="title-wrapper">
-        <h1>Roblox Exploits</h1>
-        <div class="updated">Last updated: 7/6/2024 5:10PM</div>
+        <h1>rbxl.hacks</h1>
+        <div class="updated">Last updated: 7/6/2024 5:10PM | Page: main</div>
     </div>
 </div>
 
-
-
-
+<div class="main-content">
+    
+<div class="welcome-section">
+    <h1 class="main-title">rbxl.hacks</h1>
+    <p class="welcome-message">
+        Welcome to rbxl.hacks, your go-to source for the latest information on security vulnerabilities, exploits, and updates. Stay ahead of potential threats and keep your knowledge up-to-date with our comprehensive resources.</p>
+    </div>
 
 <div class="container">
-        <div class="card" id="electron"> 
-            <div class="highlight"></div>
-            
-        <div class="icons">
-            <img src="https://rbxlhacks.github.io/Windows.webp" alt="Windows">
-        </div>
-            
-            <h2>Electron</h2>
-            <p class="pros-heading">Pros:</p>
-            <ul class="pros">
-                <li>Uses sysguard</li>
-                <li>98% UNC</li>
-                <li>Level 8</li>
-            </ul>
-            <p class="neutral-heading">Neutral:</p>
-            <ul class="neutral">
-                <li>Monthly subscriptions only</li>
-                <li>Frequent crashes</li>
-                <li>Likely short-lived</li>
-            </ul>
-            <p class="cons-heading">Cons:</p>
-            <ul class="cons">
-                <li>They said very little</li>
-            </ul>
-            <a href="https://nocap.land/" target="_blank">
-                <button>11.99$ per month</button>
-            </a>
-        </div>
-        
-        <div class="card" id="celery">
-            <div class="highlight"></div>
-            
-        <div class="icons">
-            <img src="https://rbxlhacks.github.io/Windows.webp" alt="Windows">
-        </div>
-            
-            <h2>Celery</h2>
-            <p class="pros-heading">Pros:</p>
-            <ul class="pros">
-                <li>Built a decent reputation</li>
-                <li>In Beta phase</li>
-            </ul>
-            <p class="neutral-heading">Neutral:</p>
-            <ul class="neutral">
-                <li>Level 2</li>
-                <li>20-70% UNC</li>
-                <li>Likely short-lived</li>
-            </ul>
-            <p class="cons-heading">Cons:</p>
-            <ul class="cons">
-                <li>Many vulnerabilities</li>
-                <li>Safety is uncertain</li>
-            </ul>
-            <a href="https://discord.com/invite/celery" target="_blank">
-                <button>FREE</button>
-            </a>
-        </div>
-        
-        <div class="card" id="solara">
-            <div class="highlight"></div>
-            
-        <div class="icons">
-            <img src="https://rbxlhacks.github.io/Windows.webp" alt="Windows">
-        </div>
-            
-            <h2>Solara</h2>
-            <p class="pros-heading">Pros:</p>
-            <ul class="pros">
-                <li>No key system</li>
-                <li>External</li>
-                <li>Proven to be safe</li>
-            </ul>
-            <p class="neutral-heading">Neutral:</p>
-            <ul class="neutral">
-                <li>Most scripts may not work</li>
-                <li>Likely short-lived</li>
-                <li>Level 3 exploit</li>
-            </ul>
-            <p class="cons-heading">Cons:</p>
-            <ul class="cons">
-                <li>Many vulnerabilities</li>
-            </ul>
-            <a href="https://discord.com/invite/realsolara" target="_blank">
-                <button>FREE</button>
-            </a>
-        </div>
+    <h2>Stay Updated with Latest Exploits</h2>
+    <p>Keep yourself informed with the latest information on security vulnerabilities and exploits. Visit our Exploits Page for detailed updates and stay ahead of potential threats.</p>
+        <a href="https://rbxlhacks.github.io/exploits">
+        <button>Go to Exploits Page</button>
+     </a>
+  </div>
+</div>
 
-        <div class="card" id="Wave">
-            <div class="highlight"></div>
-            
-        <div class="icons">
-            <img src="https://rbxlhacks.github.io/Windows.webp" alt="Windows">
-        </div>
-            
-            <h2>Wave</h2>
-            <p class="pros-heading">Pros:</p>
-            <ul class="pros">
-                <li>95-100% UNC</li>
-                <li>Level 7</li>
-            </ul>
-            <p class="neutral-heading">Neutral:</p>
-            <ul class="neutral">
-                <li>Expensive</li>
-            </ul>
-            <p class="cons-heading">Cons:</p>
-            <ul class="cons">
-                <li>Subscriptions</li>
-                <li>Safety is uncertain</li>
-                <li>Unstable</li>
-            </ul>
-            <a href="https://getwave.gg/" target="_blank">
-                <button>7.50$ per week</button>
-            </a>
-        </div>
-
-
-        <div class="card" id="WaveLite">
-            <div class="highlight"></div>
-            
-        <div class="icons">
-            <img src="https://rbxlhacks.github.io/Windows.webp" alt="Windows">
-        </div>
-            
-            <h2>Wave Lite (NOT OUT)</h2>
-            <p class="pros-heading">Pros:</p>
-            <ul class="pros">
-                <li>-</li>
-            </ul>
-            <p class="neutral-heading">Neutral:</p>
-            <ul class="neutral">
-                <li>-</li>
-            </ul>
-            <p class="cons-heading">Cons:</p>
-            <ul class="cons">
-                <li>-</li>
-            </ul>
-            <a href="https://getwave.gg/" target="_blank">
-                <button>???</button>
-            </a>
-        </div>
-
-
-        <div class="card" id="DX9WARE">
-            <div class="highlight"></div>
-            
-        <div class="icons">
-            <img src="https://rbxlhacks.github.io/Windows.webp" alt="Windows">
-        </div>
-            
-            <h2>DX9WARE</h2>
-            <p class="pros-heading">Pros:</p>
-            <ul class="pros">
-                <li>Zero traces of detection found</li>
-                <li>Custom Lua environment</li>
-                <li>Has a big script library</li>
-                <li>Ton of features</li>
-                <li>External</li>
-            </ul>
-            <p class="neutral-heading">Neutral:</p>
-            <ul class="neutral">
-                <li>Lifetime subscription removed soon</li>
-                <li>Early Beta - expect bugs</li>
-            </ul>
-            <a href="https://cultofintellect.com/" target="_blank">
-                <button>3.25$</button>
-            </a>
-        </div>
-
-        <div class="card" id="Hydrogen">
-            <div class="highlight"></div>
-
-             <div class="icons">
-                 <img src="https://rbxlhacks.github.io/MacOS.webp" alt="MacOS">
-                 <img src="https://rbxlhacks.github.io/Android.webp" alt="Android">
-            </div>
-            
-            <h2>Hydrogen</h2>
-            <p class="pros-heading">Pros:</p>
-            <ul class="pros">
-                <li>No keysystem for MacOS</li>
-                <li>No negative reputation</li>
-                <li>MacOS 96% UNC</li>
-            </ul>
-            <p class="neutral-heading">Neutral:</p>
-            <ul class="neutral">
-                <li>Keysystem included for Android</li>
-                <li>Rarely updated</li>
-            </ul>
-            <a href="https://hydrogen.sh/" target="_blank">
-                <button>FREE</button>
-            </a>
-        </div>
-
-        <div class="card" id="Domain">
-            <div class="highlight"></div>
-
-        <div class="icons">
-            <img src="https://rbxlhacks.github.io/Windows.webp" alt="Windows">
-        </div>
-
-            <h2>Domain</h2>
-            <p class="pros-heading">Pros:</p>
-            <ul class="pros">
-                <li>Active updates starting in July</li>
-                <li>Built a decent reputation</li>
-                <li>Offers a lifetime package</li>
-            </ul>
-            <p class="neutral-heading">Neutral:</p>
-            <ul class="neutral">
-                <li>Rarely updated</li>
-                <li>Low UNC</li>
-                <li>Level 3</li>
-            </ul>
-            <a href="https://discord.com/invite/subdomain" target="_blank">
-                <button>15,00$ lifetime</button>
-            </a>
-        </div>
-
-        <div class="card" id="Aimmy">
-            <div class="highlight"></div>
-
-        <div class="icons">
-            <img src="https://rbxlhacks.github.io/Windows.webp" alt="Windows">
-        </div>
-
-            <h2>Aimmy</h2>
-            <p class="pros-heading">Pros:</p>
-            <ul class="pros">
-                <li>Supports other games</li>
-                <li>No keysystem</li>
-                <li>Safe to use</li>
-                <li>AI-based</li>
-            </ul>
-            <p class="neutral-heading">Neutral:</p>
-            <ul class="neutral">
-                <li>Requires training the model</li>
-                <li>Requires GTX 1050 or better</li>
-            </ul>
-            <a href="https://aimmy.dev/" target="_blank">
-                <button>FREE</button>
-            </a>
-        </div>
-
-        <div class="card" id="MacSploit">
-            <div class="highlight"></div>
-            
-            <div class="icons">
-                 <img src="https://rbxlhacks.github.io/MacOS.webp" alt="MacOS">
-            </div>
-            
-            <h2>MacSploit</h2>
-            <p class="pros-heading">Pros:</p>
-            <ul class="pros">
-                <li>Offers a lifetime package<li>
-                <li>Infrequent banwaves</li>
-                <li>98% UNC</li>
-                <li>Level 8</li>
-            </ul>
-            <p class="neutral-heading">Neutral:</p>
-            <ul class="neutral">
-                <li>Updates are late</li>
-            </ul>
-            <p class="cons-heading">Cons:</p>
-            <ul class="cons">
-                <li>Owner's background is questionable</li>
-            </ul>
-            <a href="https://discord.com/invite/macsploit" target="_blank">
-                <button>$10,00</button>
-            </a>
-        </div>
-
-        <div class="card" id="CodeX">
-            <div class="highlight"></div>
-            
-            <div class="icons">
-                 <img src="https://rbxlhacks.github.io/Android.webp" alt="Android">
-                 <img src="https://rbxlhacks.github.io/IOS.webp" alt="IOS">
-            </div>
-            
-            <h2>CodeX</h2>
-            <p class="pros-heading">Pros:</p>
-            <ul class="pros">
-                <li>Unlikely to discontinue in the near future<li>
-            </ul>
-            <p class="neutral-heading">Neutral:</p>
-            <ul class="neutral">
-                <li>Long keysystem</li>
-                <li>Similar to ArceusX</li>
-                <li>Potential banwaves</li>
-            </ul>
-            <p class="cons-heading">Cons:</p>
-            <ul class="cons">
-                <li>Partnered with Arceus X</li>
-                <li>Uses core technology from ArceusX</li>
-            </ul>
-            <a href="https://codex.lol/" target="_blank">
-                <button>FREE</button>
-            </a>
-        </div>
-
-        <div class="card" id="Delta">
-            <div class="highlight"></div>
-            
-            <div class="icons">
-                 <img src="https://rbxlhacks.github.io/Android.webp" alt="Android">
-            </div>
-            
-            <h2>Delta</h2>
-            <p class="pros-heading">Pros:</p>
-            <ul class="pros">
-                <li>Unlikely to discontinue in the near future</li>
-                <li>Best performance</li>
-                <li>Popular choice</li>
-            </ul>
-            <p class="neutral-heading">Neutral:</p>
-            <ul class="neutral">
-                <li>Susceptible to banwaves</li>
-                <li>Includes a keysystem</li>
-            </ul>
-            <p class="cons-heading">Cons:</p>
-            <ul class="cons">
-                <li>Owner has a shady background</li>
-            </ul>
-            <a href="https://deltaexploits.net/" target="_blank">
-                <button>FREE</button>
-            </a>
-        </div>
-
-        <div class="card" id="NEVERMISS">
-            <div class="highlight"></div>
-            
-            <div class="icons">
-                 <img src="https://rbxlhacks.github.io/Windows.webp" alt="Windows">
-            </div>
-            
-            <h2>NEVERMISS</h2>
-            <p class="pros-heading">Pros:</p>
-            <ul class="pros">
-                <li>Offers a lifetime package</li>
-                <li>Has a HvH server</li>
-                <li>External</li>
-            </ul>
-            <p class="neutral-heading">Neutral:</p>
-            <ul class="neutral">
-                <li>Santo-ware rebrand</li>
-            </ul>
-            <p class="cons-heading">Cons:</p>
-            <ul class="cons">
-                <li>Owner has a shady background</li>
-                <li>Safety is uncertain</li>
-            </ul>
-            <a href="https://nevermiss.cc/" target="_blank">
-                <button>FREE | PAID</button>
-            </a>
-        </div>
-
-        <div class="card" id="Nezur">
-            <div class="highlight"></div>
-            
-            <div class="icons">
-                 <img src="https://rbxlhacks.github.io/Windows.webp" alt="Windows">
-            </div>
-            
-            <h2>Nezur</h2>
-            <p class="pros-heading">Pros:</p>
-            <ul class="pros">
-                <li>External + AI-Based</li>
-                <li>Ton of features</li>
-                <li>Fast updates</li>
-            </ul>
-            <p class="neutral-heading">Neutral:</p>
-            <ul class="neutral">
-                <li>Includes a keysystem</li>
-            </ul>
-            <p class="cons-heading">Cons:</p>
-            <ul class="cons">
-                <li>Uses old version of AIMMY</li>
-                <li>Owner has a shady background</li>
-            </ul>
-            <a href="https://nezur.io/" target="_blank">
-                <button>FREE</button>
-            </a>
-        </div>
-
-        <div class="card" id="ArceusX">
-            <div class="highlight"></div>
-            
-             <div class="icons">
-                 <img src="https://rbxlhacks.github.io/IOS.webp" alt="IOS">
-                 <img src="https://rbxlhacks.github.io/Android.webp" alt="Android">
-            </div>
-            
-            <h2>ArceusX</h2>
-            <p class="pros-heading">Pros:</p>
-            <ul class="pros">
-                <li>Unlikely to discontinue in the near future</li>
-            </ul>
-            <p class="neutral-heading">Neutral:</p>
-            <ul class="neutral">
-                <li>Long keysystem</li>
-                <li>Similar to CodeX</li>
-                <li>Potential banwaves</li>
-            </ul>
-            <p class="cons-heading">Cons:</p>
-            <ul class="cons">
-                <li>Stole user data in 2021</li>
-            </ul>
-            <a href="https://spdmteam.com/index" target="_blank">
-                <button>FREE</button>
-            </a>
-        </div>
-
-
+<div class="container2">
+    <h2>Important</h2>
+    <p>Hello, this is not the official robloxhackers.lol just an remake with semi similar ui. This version has no ads! The website/info gets updated 1-10 times a day. Website holder discord: pvhh</p>
 </div>
 
 <div class="bottombar">
-    <div class="copyright">© 2024 rbxlhacks.github.io No rights reserved.</div>
+    <div class="copyright">© 2024 rbxl.hacks.github.io No rights reserved.</div>
     <div class="community">There is no community this is just a version of robloxhackers.lol that has no ads</div>
 </div>
+
 
 </body>
 </html>
