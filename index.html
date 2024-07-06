@@ -251,9 +251,9 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 button {
-    background: linear-gradient(135deg, #6a0dad, #4b0082, #1e90ff);
-    color: #dcdcdc;
-    border: none;
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
     padding: 16px 30px;
     border-radius: 20px;
     cursor: pointer;
@@ -263,7 +263,7 @@ button {
     box-sizing: border-box;
     margin: 20px auto 0;
     display: block;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
     position: relative;
     z-index: 2;
     font-weight: bold;
@@ -273,7 +273,9 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(135deg, #8a2be2, #6a0dad, #4682b4);
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #000000;
     transform: scale(1.05);
 }
 
@@ -309,18 +311,17 @@ a {
 </div>
 
 <div class="main-content">
-
-<div class="welcome-section">
-    <h1 class="main-title">rbxl.hacks</h1>
-    <p class="welcome-message">
-        Welcome to rbxl.hacks, your go-to source for the latest information on security vulnerabilities, exploits, and updates. Stay ahead of potential threats and keep your knowledge up-to-date with our comprehensive resources.</p>
+    <div class="welcome-section">
+        <h1 class="main-title">rbxl.hacks</h1>
+        <p class="welcome-message">
+            Welcome to rbxl.hacks, your go-to source for the latest information on security vulnerabilities, exploits, and updates. Stay ahead of potential threats and keep your knowledge up-to-date with our comprehensive resources.</p>
     </div>
 
-<div class="container">
-    <h2>Stay Updated with Latest Exploits</h2>
-    <p>Keep yourself informed with the latest information on security vulnerabilities and exploits. Visit our Exploits Page for detailed updates and stay ahead of potential threats.</p>
+    <div class="container">
+        <h2>Stay Updated with Latest Exploits</h2>
+        <p>Keep yourself informed with the latest information on security vulnerabilities and exploits. Visit our Exploits Page for detailed updates and stay ahead of potential threats.</p>
         <button id="confettiButton">Go to exploits page</button>
-  </div>
+    </div>
 </div>
 
 <div class="container2">
