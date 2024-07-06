@@ -207,15 +207,15 @@ body::-webkit-scrollbar-thumb:hover {
     border: 1px solid #222;
     box-sizing: border-box;
     color: #dcdcdc;
-    perspective: 1000px; /* Add perspective to the container */
-    transform-style: preserve-3d; /* Ensure child elements are transformed in 3D space */
-    transition: transform 0.2s ease; /* Smooth transition for the transformation */
-    overflow: hidden; /* Prevent content overflow */
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease;
+    overflow: hidden;
 }
 
 .container2-content {
-    transform: translateZ(0); /* Initial 3D transform */
-    backface-visibility: hidden; /* Prevents text from clipping into the frame */
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .container2 h2 {
@@ -293,7 +293,7 @@ button:hover {
 }
 
 a {
-    text-decoration: none; /* Remove underline from links */
+    text-decoration: none; 
 }
 
 </style>
@@ -304,12 +304,12 @@ a {
     <img src="https://rbxlhacks.github.io/icon.png" alt="Logo" class="rotating">
     <div class="title-wrapper">
         <h1>rbxl.hacks</h1>
-        <div class="updated">Last updated: 7/6/2024 5:10PM | Page: main</div>
+        <div class="updated">Last updated: 7/6/2024 10:15PM | Page: main</div>
     </div>
 </div>
 
 <div class="main-content">
-    
+
 <div class="welcome-section">
     <h1 class="main-title">rbxl.hacks</h1>
     <p class="welcome-message">
@@ -344,11 +344,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     container.addEventListener('mousemove', (e) => {
         const rect = container.getBoundingClientRect();
-        const x = e.clientX - rect.left; // x position within the element
-        const y = e.clientY - rect.top; // y position within the element
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-        const rotateX = (y / rect.height - 0.5) * 20; // Adjust the 20 value for more/less tilt
-        const rotateY = (x / rect.width - 0.5) * -20; // Adjust the 20 value for more/less tilt
+        const rotateX = (y / rect.height - 0.5) * 20;
+        const rotateY = (x / rect.width - 0.5) * -20;
 
         content.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
