@@ -358,10 +358,14 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     confettiButton.addEventListener('click', () => {
+        const rect = confettiButton.getBoundingClientRect();
+        const confettiOriginX = (rect.left + rect.right) / 2 / window.innerWidth;
+        const confettiOriginY = (rect.top + rect.bottom) / 2 / window.innerHeight;
+
         confetti({
             particleCount: 200,
             spread: 70,
-            origin: { y: 0.6 },
+            origin: { x: confettiOriginX, y: confettiOriginY },
             colors: ['#ffffff']
         });
 
