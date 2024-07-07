@@ -207,8 +207,6 @@ body::-webkit-scrollbar-thumb:hover {
     border: 1px solid #222;
     box-sizing: border-box;
     color: #dcdcdc;
-    perspective: 1000px;
-    transform-style: preserve-3d;
     transition: transform 0.2s ease;
     overflow: hidden;
 }
@@ -273,9 +271,9 @@ button {
 }
 
 button:hover {
-    background-color: #ffffff; /* White background on hover */
-    color: #000000; /* Black text on hover */
-    border-color: #000000; /* Black border on hover */
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #000000;
     transform: scale(1.05);
 }
 
@@ -340,7 +338,6 @@ a {
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const container = document.querySelector('.container2');
-    const content = document.querySelector('.container2-content');
     const confettiButton = document.getElementById('confettiButton');
     container.addEventListener('mousemove', (e) => {
         const rect = container.getBoundingClientRect();
@@ -348,11 +345,11 @@ document.addEventListener("DOMContentLoaded", function() {
         const y = e.clientY - rect.top;
         const rotateX = (y / rect.height - 0.5) * 20;
         const rotateY = (x / rect.width - 0.5) * -20;
-        content.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        container.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
 
     container.addEventListener('mouseleave', () => {
-        content.style.transform = `rotateX(0deg) rotateY(0deg)`;
+        container.style.transform = `rotateX(0deg) rotateY(0deg)`;
     });
 
     confettiButton.addEventListener('click', () => {
