@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="3">
+<meta property="og:type" content="video">
+<meta property="og:title" content="rbxl.hacks">
+<meta property="og:description" content="rbxl.hacks, Spoop's room">
+<meta property="theme-color" content="#ffffff">
+<title>rbxl.hacks</title>
+<link rel="icon" href="https://rbxlhacks.github.io/icon.png" type="image/png">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    color: #dcdcdc;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.topbar {
+    background: rgba(0, 0, 0, 0.7);
+    border-bottom: 1px solid #222;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    color: #dcdcdc;
+}
+
+.topbar img {
+    height: 40px;
+    margin-right: 20px;
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+    transform-origin: center;
+}
+
+.topbar img:hover {
+    transform: scale(1.1) translateZ(20px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.title-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.topbar h1 {
+    margin: 0;
+    color: #dcdcdc;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.updated {
+    margin-top: 5px;
+    color: #888888;
+    font-size: 12px;
+    text-align: left;
+    width: 100%;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px);
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    position: relative;
+    margin-top: 50px;
+}
+
+.container {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 4px;
+    max-width: 90%;
+    border: 1px solid #222;
+    box-sizing: border-box;
+    color: #dcdcdc;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.container img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+button {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #333;
+    padding: 16px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    min-width: 190px;
+    width: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 20px auto 0;
+    display: block;
+    transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    z-index: 2;
+    font-weight: bold;
+    font-size: 15px;
+    white-space: nowrap;
+    text-align: center;
+    transform-origin: center;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #000000;
+    transform: scale(1.05);
+}
+
+.choice-buttons {
+    display: none;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.choice-buttons button {
+    margin: 20px;
+}
+
+#chooseText {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    margin-top: 20px;
+    font-size: 20px;
+    color: #dcdcdc;
+}
+
+.bottombar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    border-top: 1px solid #222;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    color: #dcdcdc;
+}
+
+.bottombar div {
+    margin: 5px 0;
+}
+
+#revealButton {
+    position: fixed;
+    bottom: 80px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #333;
+    padding: 16px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    min-width: 190px;
+    width: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: block;
+    transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    z-index: 2000;
+    font-weight: bold;
+    font-size: 15px;
+    white-space: nowrap;
+    text-align: center;
+    transform-origin: center;
+}
+
+#revealButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+#revealButton:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #000000;
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+    <img src="https://rbxlhacks.github.io/icon.png" alt="Logo">
+    <div class="title-wrapper">
+        <h1>rbxl.hacks</h1>
+        <div class="updated">Last updated: 7/6/2024 10:15PM | Page: cats</div>
+    </div>
+</div>
+
+<div class="main-content">
+    <div class="container">
+        <img src="https://rbxlhacks.github.io/main_cta.png" alt="Call to Action">
+        <div id="chooseText">Choose</div>
+        <div class="choice-buttons">
+            <button id="leaveButton">Leave</button>
+            <button id="danceButton">Stay</button>
+        </div>
+    </div>
+</div>
+
+<button id="revealButton">Enter spoops house</button>
+<div class="bottombar">
+    <div class="copyright">© 2024 rbxlhacks.github.io No rights reserved.</div>
+    <div class="community">There is no community; this is just a version of robloxhackers.lol that has no ads</div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const revealButton = document.getElementById('revealButton');
+        const mainContent = document.querySelector('.main-content');
+        const chooseText = document.getElementById('chooseText');
+        const choiceButtons = document.querySelector('.choice-buttons');
+        const leaveButton = document.getElementById('leaveButton');
+        const danceButton = document.getElementById('danceButton');
+
+        let audio = new Audio();
+        audio.src = 'https://rbxlhacks.github.io/themesong_cat3.mp3'; // Update this path if necessary
+        audio.loop = true;
+
+        revealButton.addEventListener('click', () => {
+            revealButton.disabled = true;
+            revealButton.style.opacity = '0';
+            mainContent.style.opacity = '1';
+
+            // Remove the reveal button after it is clicked
+            setTimeout(() => {
+                revealButton.remove();
+                chooseText.style.display = 'block';
+                choiceButtons.style.display = 'flex';
+                chooseText.style.opacity = '1';
+                choiceButtons.style.opacity = '1';
+            }, 1000);
+        });
+
+        leaveButton.addEventListener('click', () => {
+            choiceButtons.style.opacity = '0';
+            chooseText.style.opacity = '0';
+            setTimeout(() => {
+                choiceButtons.style.display = 'none';
+                chooseText.style.display = 'none';
+                window.location.href = 'https://rbxlhacks.github.io/';
+            }, 1000);
+        });
+
+        danceButton.addEventListener('click', () => {
+            choiceButtons.style.opacity = '0';
+            chooseText.style.opacity = '0';
+            setTimeout(() => {
+                choiceButtons.style.display = 'none';
+                chooseText.style.display = 'none';
+                audio.play();
+                // No 3D effect code here
+            }, 1000);
+        });
+    });
+</script>
+
+</body>
+</html>
