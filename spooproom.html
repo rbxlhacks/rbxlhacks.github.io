@@ -243,7 +243,7 @@ button:hover {
     </div>
 </div>
 
-<button id="revealButton">Enter spoops house</button>
+<button id="revealButton">Enter spoop's room</button>
 <div class="bottombar">
     <div class="copyright">© 2024 rbxlhacks.github.io No rights reserved.</div>
     <div class="community">There is no community; this is just a version of robloxhackers.lol that has no ads</div>
@@ -259,15 +259,14 @@ button:hover {
         const danceButton = document.getElementById('danceButton');
 
         let audio = new Audio();
-        audio.src = 'https://rbxlhacks.github.io/themesong_cat3.mp3'; // Update this path if necessary
+        audio.src = 'https://rbxlhacks.github.io/themesong_cat3.mp3';
         audio.loop = true;
 
         revealButton.addEventListener('click', () => {
             revealButton.disabled = true;
             revealButton.style.opacity = '0';
             mainContent.style.opacity = '1';
-
-            // Remove the reveal button after it is clicked
+            
             setTimeout(() => {
                 revealButton.remove();
                 chooseText.style.display = 'block';
@@ -294,7 +293,6 @@ button:hover {
                 choiceButtons.style.display = 'none';
                 chooseText.style.display = 'none';
                 audio.play();
-                // No 3D effect code here
             }, 1000);
         });
     });
