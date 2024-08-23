@@ -162,80 +162,21 @@ body::-webkit-scrollbar-thumb:hover {
     max-width: 800px;
 }
 
-.credits-container {
+.container, .container2 {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid #222;
+    box-sizing: border-box;
+    color: #dcdcdc;
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 20px;
-    box-sizing: border-box;
-    margin: 20px 0;
-}
-
-.credits-section {
-    background-color: #000000;
-    padding: 20px;
-    border-radius: 4px;
-    width: 300px;
-    max-width: 600px;
-    border: 1px solid #222;
-    box-sizing: border-box;
-    color: #dcdcdc;
-    text-align: center;
-    height: 120px;
-    overflow: auto;
-}
-
-.credits-section h2 {
-    font-size: 40px;
-    margin: 0;
-}
-
-.credits-section p {
-    font-size: 18px;
-    margin: 10px 0 0;
-}
-
-.container2 {
-    background-color: #000000;
-    padding: 20px;
-    border-radius: 4px;
-    width: 500px;
-    max-width: 500px;
-    height: 200px;
-    border: 1px solid #222;
-    box-sizing: border-box;
-    color: #dcdcdc;
-    transition: transform 0.2s ease;
-    overflow: hidden;
-}
-
-.container2-content {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-}
-
-.container2 h2 {
-    margin-top: 0;
-    font-size: 28px;
-}
-
-.container2 p {
-    font-size: 16px;
-    margin: 10px 0;
+    flex-direction: column;
 }
 
 .container {
-    background-color: #000000;
-    padding: 20px;
-    border-radius: 4px;
     width: 500px;
     max-width: 500px;
-    border: 1px solid #222;
-    box-sizing: border-box;
-    color: #dcdcdc;
-    flex: 1;
+    flex: 2;
 }
 
 .container h2 {
@@ -244,6 +185,37 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .container p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.container2 {
+    width: 500px;
+    max-width: 500px;
+    height: 220px;
+    flex: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.container2-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.container2 h2 {
+    margin-top: 0;
+    font-size: 28px;
+}
+
+.container2 p {
     font-size: 16px;
     margin: 10px 0;
 }
@@ -322,22 +294,23 @@ a {
     </div>
 </div>
 
-<div class="container2">
+<div class="container2">'
     <div class="container2-content">
         <h2>Important</h2>
-        <p>This is an remaster of robloxhackers.lol, 1-10 updates per day. Owner contact: pvhh on Discord!</p>
+        <p>This is a remaster of robloxhackers.lol, with 1-10 updates per day. Owner contact: pvhh on Discord!</p>
+        <button onclick="window.location.href='https://rbxlhacks.github.io/detections'">Further detection information</button>
     </div>
 </div>
 
 <div class="bottombar">
     <div class="copyright">© 2024 rbxlhacks.github.io No rights reserved.</div>
-    <div class="community">There is no community this is just a version of robloxhackers.lol that has no ads</div>
+    <div class="community">There is no community; this is just a version of robloxhackers.lol that has no ads</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    const container = document.querySelector('.container2');
+    const container = document.querySelector('.container');
     const confettiButton = document.getElementById('confettiButton');
     container.addEventListener('mousemove', (e) => {
         const rect = container.getBoundingClientRect();
