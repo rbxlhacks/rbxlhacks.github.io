@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="3">
+<meta property="og:type" content="video">
+<meta property="og:title" content="rbxl.hacks">
+<meta property="og:description" content="rbxl.hacks, version of robloxhackers.lol that has no ads">
+<meta property="theme-color" content="#ffffff">
+
+<title>rbxl.hacks</title>
+<link rel="icon" href="https://rbxlhacks.github.io/icons/mainicon.png" type="image/png">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    color: #dcdcdc;
+    margin: 0;
+    padding: 60px 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 6px;
+    border: 2px solid #000000;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+.topbar {
+    background: rgba(0, 0, 0, 0.7);
+    border-bottom: 1px solid #222;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    color: #dcdcdc;
+}
+
+.topbar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.topbar img {
+    height: 40px;
+    margin-right: 20px;
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+.topbar img.rotating {
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.topbar img:hover {
+    transform: scale(1.1) translateZ(20px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.title-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.title-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 26px;
+    left: 0;
+    height: 2px;
+    width: 38%;
+    background-color: blue;
+    transition: transform 0.3s ease;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+}
+
+.title-wrapper:hover::after {
+    transform: scaleX(1);
+}
+
+.updated {
+    margin-top: 5px;
+    color: #888888;
+    font-size: 12px;
+    text-align: left;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    padding: 20px;
+    perspective: 1000px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 4px;
+    width: 800px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #222;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 1 calc(33.333% - 20px);
+    box-sizing: border-box;
+}
+
+.highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+    transition: background 0.3s ease;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+button {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #333;
+    padding: 16px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    min-width: 190px;
+    width: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 20px auto 0;
+    display: block;
+    transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    font-weight: bold;
+    font-size: 15px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+h2 {
+    margin: 0 0 15px;
+    font-size: 24px;
+}
+
+.pros-heading, .neutral-heading, .cons-heading {
+    margin: 15px 0 10px;
+    font-size: 18px;
+}
+
+.pros-heading {
+    color: #4fd47e;
+}
+
+.neutral-heading {
+    color: #efc41f;
+}
+
+.cons-heading {
+    color: #d16565;
+}
+
+.pros li, .neutral li, .cons li {
+    color: #dcdcdc;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    padding-left: 30px;
+    font-size: 16px;
+}
+
+.pros li::before, .neutral li::before, .cons li::before {
+    content: '•';
+    color: #dcdcdc;
+    position: absolute;
+    left: 0;
+    font-size: 1.5em;
+    line-height: 1;
+}
+
+.pros, .neutral, .cons {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.bottombar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #222;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    text-align: center;
+    color: #dcdcdc;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.bottombar .copyright {
+    font-size: 20px;
+    margin: 0;
+}
+
+.bottombar .community {
+    font-size: 14px;
+    margin: 0;
+    color: #888888;
+}
+
+@media (max-width: 1200px) {
+    .card {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 calc(100% - 20px);
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+.colored-text {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.green-text, .red-text, .yellow-text {
+    display: flex;
+}
+
+.green-text .green-part {
+    color: #4fd47e;
+    position: relative;
+    padding-left: 1px;
+}
+
+.green-text .green-part::before, 
+.red-text .red-part::before,
+.yellow-text .yellow-part::before {
+    content: '•';
+    color: #ffffff;
+    position: absolute;
+    left: -17px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 19px;
+    line-height: 1;
+}
+
+.red-text .red-part {
+    color: #d16565;
+    position: relative;
+    padding-left: 1px;
+}
+
+.yellow-text .yellow-part {
+    color: #efc41f;
+    position: relative;
+    padding-left: 1px;
+}
+
+.colored-text span {
+    color: #dcdcdc;
+}
+
+</style>
+
+</head>
+<body>
+
+<a href="https://rbxlhacks.github.io/" class="topbar"> 
+    <img src="https://rbxlhacks.github.io/icons/mainicon.png" alt="Logo" class="rotating">
+    <div class="title-wrapper">
+        <h1>rbxl.hacks</h1>
+        <div class="updated">Last updated: 8/23/2024 10:28PM | Page: detections</div>
+    </div>
+</a>
+
+<div class="container"> <!-- this is so annoying to read!! -->
+    <div class="card" id="yuh">
+        <div class="highlight"></div>
+        <h2>Detected exploits</h2>
+        
+        <p class="pros-heading">Undetected:</p>
+        <ul class="Undetected">
+            <li><b>Hydrogen</b>: no bans have occured and doesn't spoof updates</li>
+            <li><b>Delta</b>: no ban reports and use technology from Hydrogen</li>
+        </ul>
+        
+        <p class="neutral-heading">Semi detected/undetected:</p>
+        <ul class="Semi-detected">
+            <li><b>Electron</b>: Potentially detected. Certainty: 55% (Most ban reports were from WAVE)</li>
+            <li><b>Celex V3</b>: most likely detected by current info.</li>
+            <li><b>Cubix android</b>: unknown if detected or not</li>
+            <li><b>Hooksense</b>: most likely undetected</li>
+            <li><b>Celex V1/V2</b>: potentially detected </li>
+            <li><b>Stellar V2</b>: Potentially detected</li>
+        </ul>
+        
+        <p class="cons-heading">Detected:</p>
+        <ul class="Detected">
+            <li><b>Nova/Tidal/Ro-Astral/Sutor/etc</b>: Hooks into core packages. Also a stupid rat.</li>
+            <li><b>MantiWPF</b>: Hooks into corepackages or coregui depending on version</li>
+            <li><b>CE cheats</b>: All cheat engine methods are detected</li>
+            <li><b>Appleware</b>: many ban reports, owner confirmed.</li>
+            <li><b>Atg pastes</b>: Yeno, And other popular ones.</li>
+            <li><b>Solara</b>: Hooks into different core modules</li>
+            <li><b>Anonyme</b>: Hooks into corepackages</li>
+            <li><b>Nexiq/Syphra</b>: Hooks into chat util</li>
+            <li><b>Wave</b>: Uses WriteProcessMemory</li>
+            <li><b>Feather</b>: hooks into corepackages</li>
+            <li><b>Jules</b>: Hooks into core packages.</li>
+            <li><b>Nyx</b>: Hooking into core modules.</li>
+            <li><b>Cartel</b>: Hooks into policy service</li>
+            <li><b>Synapse Z</b>: Uses LoadLibraryA.</li>
+            <li><b>Flint</b><b></b>: Hooks into coremodules.</li>
+            <li><b>Wind v1</b>: Hooks into coregui</li>
+            <li><b>Celery</b>: Suspends threads</li>
+            <li><b>Incognito Fixed</b></li>
+            <li><b>Horizon V2</b></li>
+            <li><b>Santoware</b></li>
+            <li><b>Cubix iOS</b></li>
+            <li><b>JJsploit</b></li>
+            <li><b>Scythex</b></li>
+            <li><b>Haze.lol</b></li>
+            <li><b>Krucus</b></li>
+            <li><b>Solaris</b></li>
+            <li><b>X07</b></li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="bottombar">
+    <div class="copyright">© 2024 rbxlhacks.github.io No rights reserved.</div>
+    <div class="community">There is no community this is just a version of robloxhackers.lol that has no ads</div>
+</div>
+
+</body>
+</html>
