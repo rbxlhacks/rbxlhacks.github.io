@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rbxlhacks.github.io - testing</title>
+    
+    <link rel="stylesheet" href="https://robloxhackers.lol/components/scripts/CSS/styles.css">
+    <link rel="stylesheet" href="https://robloxhackers.lol/components/scripts/CSS/navbar.css"> <!-- Link to navbar CSS -->
+    <link rel="stylesheet" href="https://robloxhackers.lol/components/scripts/CSS/footer.css"> <!-- Link to footer CSS -->
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://robloxhackers.lol/media/globe.ico">
+
+    <!-- Font Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Meta Tags -->
+    <meta name="title" content="rbxlhacks.github.io | testing page">
+    <meta name="description" content="testing - How did u find this page?">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="rbxlhacks.github.io | testing page">
+    <meta property="og:description" content="testing - How did u find this page?">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="rbxlhacks.github.io/testing">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#EF4444">
+</head>
+
+<body>
+    <div id="navbar"></div>
+
+    <!-- Container for Notification Box and Cards -->
+    <div class="main-container" style="padding-top: 4rem;">
+
+        <div class="cards-wrapper" id="cards-wrapper">
+            <!-- Cards will be populated here -->
+        </div>
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="https://robloxhackers.lol/components/scripts/JS/script.js" defer></script>
+</body>
+
+</html>
