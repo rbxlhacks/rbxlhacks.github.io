@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Load head
-    fetch('scripts/HTML/head.html') // Ensure this path is correct
+    fetch('https://robloxhackers.lol/components/scripts/HTML/head.html') // Ensure this path is correct
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
   
     // Load navbar
-    fetch('components/scripts/HTML/navbar.html')
+    fetch('https://robloxhackers.lol/components/scripts/HTML/navbar.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
   
     // Load footer
-    fetch('scripts/HTML/footer.html')
+    fetch('https://robloxhackers.lol/components/scripts/HTML/footer.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
