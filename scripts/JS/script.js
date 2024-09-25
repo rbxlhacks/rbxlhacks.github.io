@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Load head
-    fetch('components/scripts/HTML/head.html') // Ensure this path is correct
+    fetch('scripts/HTML/head.html') // Ensure this path is correct
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
   
     // Fetch card data from roblox.json file
-    fetch('components/scripts/JSON/roblox.json') // Ensure this path is correct
+    fetch('scripts/JSON/roblox.json') // Ensure this path is correct
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
   
     // Load footer
-    fetch('components/scripts/HTML/footer.html')
+    fetch('scripts/HTML/footer.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
